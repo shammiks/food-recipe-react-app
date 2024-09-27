@@ -1,0 +1,142 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.recipe-card {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.signup-page-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.signup-page-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.signup-page-exit {
+  opacity: 1;
+}
+
+.signup-page-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+/* Add a subtle hover effect to form inputs */
+.bg-gray-700:hover {
+  box-shadow: 0 0 0 2px rgba(236, 72, 153, 0.3);
+}
+
+/* Add a pulsing animation to the submit button */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(236, 72, 153, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(236, 72, 153, 0);
+  }
+}
+html {
+  scroll-behavior: smooth;
+}
+
+/* Add some padding to account for the fixed navbar */
+section {
+  scroll-margin-top: 4rem;
+}
+
+.bg-pink-500:hover {
+  animation: pulse 1.5s infinite;
+}
+
+/* Add smooth transitions to form elements */
+.signup-page input,
+.signup-page textarea,
+.signup-page button {
+  transition: all 0.3s ease;
+}
+
+/* Add a subtle scale effect on form element focus */
+.signup-page input:focus,
+.signup-page textarea:focus {
+  transform: scale(1.02);
+}
+
+.recipe-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.recipe-card img {
+  transition: transform 0.3s ease;
+}
+
+.recipe-card:hover img {
+  transform: scale(1.1);
+}
+
+.modal-overlay {
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal-content {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.loading::after {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ff6b6b;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  margin-left: 10px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
